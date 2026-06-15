@@ -39,18 +39,11 @@ Usage: python LRS_cut_FASTQ_window.py input.fastq output.fastq window_size step_
 Use the wrapper `editing_site_call.pl` to process **all BAM files** in a directory.  
 The script expects indexed BAMs (`.bam.bai` or `.bai`).  
 **Default minimum base quality = 30** (suitable for Illumina).
-
 Usage:perl editing_site_call.pl --in /path/to/bam_directory --out /path/to/output_directory
-
 ## 2. Single‑sample editing level calculation (Nanopore / LRS data)
 For long‑read data (e.g., Oxford Nanopore), use `Query_Editing_Level.pl` directly.  
 Specify the minimum base quality as the 4th argument (default = 30, set to **7** for Nanopore).
-**Usage:**
-```bash
-perl Query_Editing_Level.pl <sites.bed> <sample.bam> <output.txt> [min_base_qual]
-
+Usage:perl Query_Editing_Level.pl <sites.bed> <sample.bam> <output.txt> [min_base_qual]
 ## 3. Editing level classification (Alu / non‑Alu / other)
 After obtaining `.all.levels.txt` files for all samples, run the classification script:
-**Usage:**
-```bash
-bash level_analysis_adapt.sh /path/to/call_level_output_directory
+Usage:bash level_analysis_adapt.sh /path/to/call_level_output_directory
